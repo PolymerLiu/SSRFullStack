@@ -1,0 +1,32 @@
+{
+  "name": "ssrreact",
+  "version": "1.0.0",
+  "description": "采用react+mobx+webpack 打造的一款ssr应用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config build/webpack.config.js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "mobx",
+    "ssr"
+  ],
+  "author": "Jeffrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PolymerLiu/SSRFullStack/issues"
+  },
+  "homepage": "https://github.com/PolymerLiu/SSRFullStack#readme",
+  "dependencies": {
+    "react": "^16.8.3",
+    "webpack": "^4.29.5"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.2.3"
+  }
+}
