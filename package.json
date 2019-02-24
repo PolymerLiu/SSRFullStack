@@ -4,8 +4,11 @@
   "description": "采用react+mobx+webpack 打造的一款ssr应用",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config build/webpack.config.js"
+    "build:client": "webpack --config build/webpack.config.client.js",
+    "build:server": "webpack --config build/webpack.config.server.js",
+    "clear": "rimraf dist",
+    "start": "node server/server.js",
+    "build": "npm run clear && npm run build:client && npm run build:server"
   },
   "repository": {
     "type": "git"
@@ -23,6 +26,7 @@
   },
   "homepage": "https://github.com/PolymerLiu/SSRFullStack#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "webpack": "^4.29.5"
@@ -34,6 +38,7 @@
     "babel-preset-es2015-loose": "^8.0.0",
     "babel-preset-react": "^6.24.1",
     "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.3",
     "webpack-cli": "^3.2.3"
   }
 }
