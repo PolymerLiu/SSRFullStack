@@ -18,7 +18,7 @@ app.use('/public',express.static(path.join(__dirname,'../dist')))
 app.get('*',(req,res) => {
     const appString = ReactSSR.renderToString(serverEntry)
     //将<app>里边渲染的东西替换成后端渲染的
-    res.send(template.replace('<app></app>',123))
+    res.send(template.replace('<!--<app></app>-->',123))
 })
 
 app.listen(3333,() => {
