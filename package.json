@@ -6,6 +6,7 @@
   "scripts": {
     "build:client": "webpack --config build/webpack.config.client.js",
     "build:server": "webpack --config build/webpack.config.server.js",
+    "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
     "clear": "rimraf dist",
     "start": "node server/server.js",
     "build": "npm run clear && npm run build:client && npm run build:server"
@@ -37,8 +38,10 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2015-loose": "^8.0.0",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "rimraf": "^2.6.3",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   }
 }
