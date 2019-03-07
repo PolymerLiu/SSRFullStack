@@ -15,7 +15,7 @@ export default () => {
         <Router>
             <div>
                 <Route path='/' render={() => <Redirect to={'/list'}/>} exact/>
-                <Route path='/list' component={TopicList} exact/>
+                <Route path='/list' component={TopicList}/>
                 <Route path='/detail' component={TopicDetail}/>
             </div>
         </Router>
