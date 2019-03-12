@@ -1,4 +1,6 @@
 const express = require("express")
+const session = require("express-session")
+const bodyParser = require("body-parser")
 const ReactSSR = require("react-dom/server")
 const path = require("path")
 const favicon = require("serve-favicon")
@@ -6,6 +8,26 @@ const fs = require("fs")
 const app = express()
 
 const isDev = process.env.NODE_ENV === 'development'
+
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}))
+
+app.use(session({
+    maxAge: 10*60*1000,
+    name: 'tid',
+    resave: false,
+    saveUninitialized: false,
+    secret: 'react ssr',
+
+}))
+
+
+//需要登陆的请求，代理到login下
+app.use('/api/user',require('./util/handle-login)'))
+
+//其他请求代理到proxy下
+app.use('/api',require('./util/proxy)'))
 
 
 app.use(favicon(path.join(__dirname,'../favicon.ico')))
