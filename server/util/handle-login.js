@@ -23,7 +23,7 @@ router.post('/login',(req,res,next) => {
             if (e.response){
                 res.json({
                     success:false,
-                    data:e.response
+                    data:e.response.data
                 })
             }else {
                 next(e)

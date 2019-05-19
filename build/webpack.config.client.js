@@ -37,6 +37,9 @@ if (isDev) {
         //让所以404的请求返回index.html
         historyApiFallback:{
             index: '/public/index.html'
+        },
+        proxy:{
+            '/api': 'http://localhost:3333'
         }
     }
 }

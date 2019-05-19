@@ -40,8 +40,8 @@ autorun(() => {
 
 
 //每间隔一秒钟更新我们的counter
-setInterval(() => {
-    appState.add()
-},1000)
+// setInterval(() => {
+//     appState.add()
+// },1000)
 
 export default appState

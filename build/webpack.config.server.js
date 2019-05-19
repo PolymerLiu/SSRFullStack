@@ -5,6 +5,7 @@ const baseConfig = require('./webpack.base')
 
 module.exports = webpackMerge( baseConfig,{
     target: "node",
+    mode: "production",
     entry: {
         app:path.join(__dirname,'../client/server.entry.js')
     },

@@ -24,10 +24,10 @@ app.use(session({
 
 
 //需要登陆的请求，代理到login下
-app.use('/api/user',require('./util/handle-login)'))
+app.use('/api/user',require('./util/handle-login'))
 
 //其他请求代理到proxy下
-app.use('/api',require('./util/proxy)'))
+app.use('/api',require('./util/proxy'))
 
 
 app.use(favicon(path.join(__dirname,'../favicon.ico')))

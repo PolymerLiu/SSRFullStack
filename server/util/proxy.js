@@ -1,5 +1,5 @@
-const router = require('express').Router()
 const axios = require('axios')
+const querystring = require('querystring')
 
 const baseUrl = 'https://cnodejs.org/api/v1'
 
@@ -8,6 +8,7 @@ module.exports = function (req,res,next) {
     const user = req.session.user || {}
     const needAccessToken = req.query.needAccessToken
 
+    // console.log('==============',user);
     if (needAccessToken && user.accessToken){
         res.status(401).send({
             success:false,
@@ -24,11 +25,11 @@ module.exports = function (req,res,next) {
     axios(`${baseUrl}${path}`,{
         method: req.method,
         params: query,
-        data: Object.assign({},req.body,{
+        data: querystring.stringify(Object.assign({},req.body,{
             accesstoken: user.accessToken
-        }),
+        })),
         headers: {
-            'Content-Type': 'application/x-www-form-urlencode'
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
     }).then(resp => {
         if (resp.status === 200){
